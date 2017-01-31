@@ -21,6 +21,7 @@ public class ArrayTest {
 		int matrix[][] = new int[20][30];
 		int[] tmp;
 		tmp=matrix[1];
+//		matrix[0] = new int[32]; //возможно
 		
 		matrix[0][0] = 1; matrix[0][1] = 2;
 		matrix[1][0] = 3; matrix[1][1] = 4;
@@ -63,6 +64,10 @@ public class ArrayTest {
 
 		System.out.println("matrix.length="+matrix.length);
 		System.out.println("matrix[0].length="+matrix[0].length);
+		
+		for (int g : tmp) {
+			System.out.println(g);
+		}
 		
 		
 
