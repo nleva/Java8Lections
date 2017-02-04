@@ -15,7 +15,14 @@ public class Loops {
 		
 		printSquare(2, 2);
 
+		return;
+//		int a= add(add(2,3),5);
+//		System.out.println(a);
 	}
+
+//	static int add(int a, int b){
+//		return 0;
+//	}
 
 	/**
 	 * Печать прямоугольника
@@ -26,13 +33,17 @@ public class Loops {
 		for(int h =0 ; h<height ; h++){
 			printLine(width);
 		}
+		return;
 	}
 
 	private static void printLine(int W) {
+//		System.exit(0);
+//		System.
 		for(int w=0; w<W ; w++){
 			System.out.print("#");
 		}
 		System.out.println();
+		return;
 	}
 
 }
