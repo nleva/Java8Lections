@@ -3,7 +3,7 @@ package ru.knbase.java1.lec2;
 public class MyClass {
 
 	public static void main(String[] args) {
-		double d = 1e2 + 1 / (double)2;
+		double d = 1e2 +  0x1F / 2;
 		double k = 0; // 111111111 -> 00000000 -> 1111111
 		
 		boolean bool = true; //false
@@ -16,7 +16,9 @@ public class MyClass {
 		
 		boolean bool2=false;
 		
-		bool = (5<3) && (5>0);
+//		bool = bool = !bool;
+		
+		bool = (5<3) && (/*bool=*/5>0);
 		bool = true || false;
 		bool = true == false;
 		bool = true != false;
@@ -44,6 +46,18 @@ public class MyClass {
 			j="world";
 		}
 
+		boolean array[] = {true,false,true,true,true,true};//new boolean[32];
+		int flags = 0b0000_0000__0000_0000__0000_0000__0000_0000; 
+		
+		//from boolean array to int
+		for(int i=0; i<array.length; i++){ //[true] [false] [true] [...]
+			int tmp =  (array[i]?1:0) << i ;
+			flags |= tmp; // 0011 * 0100 -> 0111; 1111 * 0100 -> 1111
+		}
+		
+		System.out.println(Integer.toString(flags, 2));
+		
+		
 		k = 0b101 
 		  & 0b011;
 		k = 0b101 
@@ -73,7 +87,7 @@ public class MyClass {
 		
 		i=0;
 		i=i++ + 0;
-		// tmp=0
+		// tmp=0  //i
 		// i=i+1
 		// tmp = tmp+0
 		// i = tmp 
