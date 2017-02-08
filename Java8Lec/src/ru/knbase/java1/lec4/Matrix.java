@@ -2,13 +2,14 @@ package ru.knbase.java1.lec4;
 
 import java.util.Arrays;
 
-public class Matrix {
+public class Matrix extends Object{
 
 	public final int height;
 	public final int width;
 	final double[][] matrix;
 
-	public Matrix(int height, int width) {
+	public Matrix (int height, int width) {
+		super();
 		this.height = height;
 		this.width = width;
 		matrix = new double[width][height];
