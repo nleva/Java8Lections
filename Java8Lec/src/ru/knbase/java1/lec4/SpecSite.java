@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class SpecSite implements WebSite, Serializable {
 
-	String url="http://specialist.ru";
+	private String url="http://specialist.ru";
 	String content="";
 	
 	@Override

@@ -16,9 +16,19 @@ public class ReadFromConsole {
 
 	static HashMap<Character, Integer> stat = new HashMap<>();
 	static HashMap<String, Integer> wordStat = new HashMap<>();
+	static HashMap<String, String> props = new HashMap<>();
 
 	public static void main(String[] args) throws Exception {
 
+		props.put("volume", "100%");
+		props.put("height", "50%");
+		props.put("width", "none!!!");
+		props.put("path", "c:/asd/asdasd/asd/asd/asd");
+		props.put("url","yandex.ru" );
+		props.put("width", "asdasd");
+
+		System.out.println(props.get("width"));
+		
 		InputStream is = System.in;
 		is = new FileInputStream(new File("c:/txt/test.txt.txt"));
 		// is=new URL("https://github.com").openConnection().getInputStream();
@@ -26,18 +36,18 @@ public class ReadFromConsole {
 
 		System.out.println("enter line:");
 		for (; scanner.hasNextLine();) {
-			String nextLine = scanner.nextLine();
+			String line = scanner.nextLine();
 			// System.out.println("scanned: "+nextLine);
 			int words = 1;
-			for (int i = 0; i < nextLine.length(); i++) {
-				if (nextLine.charAt(i) == ' ') {
+			for (int i = 0; i < line.length(); i++) {
+				if (line.charAt(i) == ' ') {
 					words++;
 				}
 			}
 			// System.out.println("words count:
 			// "+nextLine.split("\\s+").length);
-			countLetters(nextLine);
-			countWorlds(nextLine);
+			countLetters(line);
+			countWorlds(line);
 		}
 		printStat();
 		printWordStat();
@@ -85,9 +95,13 @@ public class ReadFromConsole {
 
 	private static void countWorlds(String line) {
 		String[] words = line.split("[\\s,._!?)(\";:]+");
-		for (String word : words) {
-			Integer count = wordStat.get(word);
-			wordStat.put(word, (count == null) ? 1 : (count + 1));
+
+//		for(String word : words){
+		for (int i = 0; i < words.length; i++) {
+			String word = words[i];
+			Integer count = wordStat.get(word);//<--- world:null
+			wordStat.put(word, (count == null) ? 1 : (count + 1));// hello:2, world:1
+			
 		}
 	}
 
